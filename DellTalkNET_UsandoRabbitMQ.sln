@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DellTalkNET_UsandoRabbitMQ.Application.WebApi", "DellTalkNET_UsandoRabbitMQ.Application.WebApi\DellTalkNET_UsandoRabbitMQ.Application.WebApi.csproj", "{E8DCB991-9B46-4BCE-AB21-EA6673A32971}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{0E78D0BC-CF27-4403-8426-EF989AB69C4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{7C47C1B1-9A5C-4CDD-BB17-155279E33EEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5780BD06-EA39-4AA9-BC45-6FB0E3941D04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DellTalkNET_UsandoRabbitMQ.Infrastructure.Domains", "DellTalkNET_UsandoRabbitMQ.Infrastructure.Domains\DellTalkNET_UsandoRabbitMQ.Infrastructure.Domains.csproj", "{045E5FB9-A014-44CB-B00C-7676D3892C1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DellTalkNET_UsandoRabbitMQ.Infrastructure.Database", "DellTalkNET_UsandoRabbitMQ.Infrastructure.Database\DellTalkNET_UsandoRabbitMQ.Infrastructure.Database.csproj", "{14421F3E-2638-4406-8DDE-3D86A396FBFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository", "DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository\DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository.csproj", "{A00F39EF-12D2-400A-9298-09F11B6B11EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DellTalkNET_UsandoRabbitMQ.Services.TaxIssuer", "DellTalkNET_UsandoRabbitMQ.Services.TaxIssuer\DellTalkNET_UsandoRabbitMQ.Services.TaxIssuer.csproj", "{276CE65D-99B6-4A70-8F4C-4C23E0B8676B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DellTalkNET_UsandoRabbitMQ.Services.BillingOrder", "DellTalkNET_UsandoRabbitMQ.Services.BillingOrder\DellTalkNET_UsandoRabbitMQ.Services.BillingOrder.csproj", "{98117219-F801-44E3-BDD9-09E2F7F85504}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DellTalkNET_UsandoRabbitMQ.Application.Common", "DellTalkNET_UsandoRabbitMQ.Application.Common\DellTalkNET_UsandoRabbitMQ.Application.Common.csproj", "{56A28AEF-4FE2-4C58-A534-23D7A72DEF97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DellTalkNET_UsandoRabbitMQ.Infrastructure.MessageBroker", "DellTalkNET_UsandoRabbitMQ.Infrastructure.MessageBroker\DellTalkNET_UsandoRabbitMQ.Infrastructure.MessageBroker.csproj", "{E1B9CEA8-B316-42B3-90D0-9CC0C86D929D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DellTalkNET_UsandoRabbitMQ.Services.ProcessingOrder", "DellTalkNET_UsandoRabbitMQ.Services.ProcessingOrder\DellTalkNET_UsandoRabbitMQ.Services.ProcessingOrder.csproj", "{607FB5FF-AFAA-4798-AA5E-A29FD900B9CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8DCB991-9B46-4BCE-AB21-EA6673A32971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8DCB991-9B46-4BCE-AB21-EA6673A32971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8DCB991-9B46-4BCE-AB21-EA6673A32971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8DCB991-9B46-4BCE-AB21-EA6673A32971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{045E5FB9-A014-44CB-B00C-7676D3892C1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{045E5FB9-A014-44CB-B00C-7676D3892C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{045E5FB9-A014-44CB-B00C-7676D3892C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{045E5FB9-A014-44CB-B00C-7676D3892C1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14421F3E-2638-4406-8DDE-3D86A396FBFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14421F3E-2638-4406-8DDE-3D86A396FBFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14421F3E-2638-4406-8DDE-3D86A396FBFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14421F3E-2638-4406-8DDE-3D86A396FBFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A00F39EF-12D2-400A-9298-09F11B6B11EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A00F39EF-12D2-400A-9298-09F11B6B11EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A00F39EF-12D2-400A-9298-09F11B6B11EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A00F39EF-12D2-400A-9298-09F11B6B11EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{276CE65D-99B6-4A70-8F4C-4C23E0B8676B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{276CE65D-99B6-4A70-8F4C-4C23E0B8676B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{276CE65D-99B6-4A70-8F4C-4C23E0B8676B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{276CE65D-99B6-4A70-8F4C-4C23E0B8676B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98117219-F801-44E3-BDD9-09E2F7F85504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98117219-F801-44E3-BDD9-09E2F7F85504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98117219-F801-44E3-BDD9-09E2F7F85504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98117219-F801-44E3-BDD9-09E2F7F85504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56A28AEF-4FE2-4C58-A534-23D7A72DEF97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A28AEF-4FE2-4C58-A534-23D7A72DEF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A28AEF-4FE2-4C58-A534-23D7A72DEF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A28AEF-4FE2-4C58-A534-23D7A72DEF97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1B9CEA8-B316-42B3-90D0-9CC0C86D929D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1B9CEA8-B316-42B3-90D0-9CC0C86D929D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1B9CEA8-B316-42B3-90D0-9CC0C86D929D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1B9CEA8-B316-42B3-90D0-9CC0C86D929D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{607FB5FF-AFAA-4798-AA5E-A29FD900B9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{607FB5FF-AFAA-4798-AA5E-A29FD900B9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{607FB5FF-AFAA-4798-AA5E-A29FD900B9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{607FB5FF-AFAA-4798-AA5E-A29FD900B9CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E8DCB991-9B46-4BCE-AB21-EA6673A32971} = {0E78D0BC-CF27-4403-8426-EF989AB69C4A}
+		{045E5FB9-A014-44CB-B00C-7676D3892C1D} = {7C47C1B1-9A5C-4CDD-BB17-155279E33EEC}
+		{14421F3E-2638-4406-8DDE-3D86A396FBFE} = {7C47C1B1-9A5C-4CDD-BB17-155279E33EEC}
+		{A00F39EF-12D2-400A-9298-09F11B6B11EC} = {7C47C1B1-9A5C-4CDD-BB17-155279E33EEC}
+		{276CE65D-99B6-4A70-8F4C-4C23E0B8676B} = {5780BD06-EA39-4AA9-BC45-6FB0E3941D04}
+		{98117219-F801-44E3-BDD9-09E2F7F85504} = {5780BD06-EA39-4AA9-BC45-6FB0E3941D04}
+		{56A28AEF-4FE2-4C58-A534-23D7A72DEF97} = {0E78D0BC-CF27-4403-8426-EF989AB69C4A}
+		{E1B9CEA8-B316-42B3-90D0-9CC0C86D929D} = {7C47C1B1-9A5C-4CDD-BB17-155279E33EEC}
+		{607FB5FF-AFAA-4798-AA5E-A29FD900B9CF} = {5780BD06-EA39-4AA9-BC45-6FB0E3941D04}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12D29EBE-F169-4ED2-9458-F07637FC3B52}
+	EndGlobalSection
+EndGlobal

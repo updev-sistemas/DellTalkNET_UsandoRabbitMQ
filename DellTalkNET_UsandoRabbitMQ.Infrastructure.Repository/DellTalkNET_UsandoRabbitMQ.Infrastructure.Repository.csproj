@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NHibernate" Version="5.3.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DellTalkNET_UsandoRabbitMQ.Infrastructure.Database\DellTalkNET_UsandoRabbitMQ.Infrastructure.Database.csproj" />
+    <ProjectReference Include="..\DellTalkNET_UsandoRabbitMQ.Infrastructure.Domains\DellTalkNET_UsandoRabbitMQ.Infrastructure.Domains.csproj" />
+  </ItemGroup>
+
+</Project>

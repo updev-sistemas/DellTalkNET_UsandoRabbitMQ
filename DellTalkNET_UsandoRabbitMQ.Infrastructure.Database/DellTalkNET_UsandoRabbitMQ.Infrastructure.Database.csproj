@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentNHibernate" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="MySql.Data" Version="8.0.28" />
+    <PackageReference Include="NHibernate" Version="5.3.10" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DellTalkNET_UsandoRabbitMQ.Application.Common\DellTalkNET_UsandoRabbitMQ.Application.Common.csproj" />
+    <ProjectReference Include="..\DellTalkNET_UsandoRabbitMQ.Infrastructure.Domains\DellTalkNET_UsandoRabbitMQ.Infrastructure.Domains.csproj" />
+  </ItemGroup>
+
+</Project>
