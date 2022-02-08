@@ -19,6 +19,8 @@ namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository
         ISkuRepository Sku { get; }
         IOrderRepository Order { get; }
         IOrderItemRepository OrderItem { get; }
+        IInvoiceRepository Invoice { get; }
+        IInvoiceItemRepository InvoiceItem { get; }
         #endregion
     }
 }

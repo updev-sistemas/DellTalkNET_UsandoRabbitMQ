@@ -134,6 +134,7 @@ namespace DellTalkNET_UsandoRabbitMQ.Services.ProcessingOrder
                 {
                     OrderId = order.Id.Value
                 });
+
                 _publish.ToQueue(QueueConst.QUEUE_BILLING_ORDER, payload);
             }
             catch (Exception ex)

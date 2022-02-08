@@ -10,4 +10,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DellTalkNET_UsandoRabbitMQ.Infrastructure.MessageBroker\DellTalkNET_UsandoRabbitMQ.Infrastructure.MessageBroker.csproj" />
+    <ProjectReference Include="..\DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository\DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository.csproj" />
+  </ItemGroup>
 </Project>
