@@ -1,10 +1,10 @@
 ﻿namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Domains.Enums
 {
-    public enum OrderStatusEnum
+    public static class OrderStatusEnum
     {
-        PENDING,
-        PROCESSING,
-        PROCESSED,
-        CANCELED
+        public const string PENDING = "N";
+        public const string PROCESSING = "P";
+        public const string PROCESSED = "D";
+        public const string CANCELED = "C";    
     }
 }

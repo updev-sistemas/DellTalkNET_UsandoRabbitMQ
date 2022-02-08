@@ -23,11 +23,10 @@ namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Database.Impl
             if (_factory == null)
             {
                 _factory = Fluently.Configure()
-                                   .Database(MySQLConfiguration.Standard.ConnectionString(c => c.Database(_config.DbName)
+                                   .Database(MsSqlConfiguration.MsSql2012.ConnectionString(c => c.Database(_config.DbName)
                                                                                                  .Username(_config.Username)
                                                                                                  .Password(_config.Password)
-                                                                                                 .Server(_config.Host)
-                                                                                                 .Port(_config.Port ?? 3304)))
+                                                                                                 .Server(_config.Host)))
                                    .Mappings(m =>
                                    {
                                        m.FluentMappings.AddFromAssemblyOf<CustomerMap>()

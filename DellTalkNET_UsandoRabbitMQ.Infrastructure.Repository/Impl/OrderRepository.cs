@@ -5,29 +5,29 @@ using System.Linq.Expressions;
 
 namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository.Impl
 {
-    public class SkuRepository : ISkuRepository
+    public class OrderRepository : IOrderRepository
     {
         private readonly ISession _db;
 
-        public SkuRepository(ISession session)
+        public OrderRepository(ISession session)
             => _db = session;
 
-        public void Delete(Sku entity)
+        public void Delete(Order entity)
             => _db.Delete(entity);
 
-        public Sku Get(long id)
-            => _db.Get<Sku>(id);
+        public Order Get(long id)
+            => _db.Get<Order>(id);
 
-        public IEnumerable<Sku> GetAll()
+        public IEnumerable<Order> GetAll()
             => Query().ToArray();
 
-        public IEnumerable<Sku> GetAll(Expression<Func<Sku, bool>> expression)
+        public IEnumerable<Order> GetAll(Expression<Func<Order, bool>> expression)
             => Query().Where(expression).ToArray();
 
-        public IQueryable<Sku> Query()
-            => _db.Query<Sku>();
+        public IQueryable<Order> Query()
+            => _db.Query<Order>();
 
-        public void SaveOrUpdate(Sku entity)
+        public void SaveOrUpdate(Order entity)
         {
             if (!entity.CreatedAt.HasValue)
                 entity.CreatedAt = DateTime.Now;

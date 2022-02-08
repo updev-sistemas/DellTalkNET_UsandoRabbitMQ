@@ -15,17 +15,18 @@ namespace DellTalkNET_UsandoRabbitMQ.Services.ProcessingOrder
     {
         private readonly ILogger<Worker> _logger;
         private readonly IUnitOfWork _db;
-        private readonly IOptions<RabbitMQConfig> rabbitMQConfig;
-
+        private readonly IOptions<RabbitMQConfig> _rabbitMQConfig;
+        private readonly IMessageBrokerPublish _publish;
         private IConnection _connection;
         private IModel _channel;
 
 
-        public Worker(ILogger<Worker> logger, IUnitOfWork unitOfWork, IOptions<RabbitMQConfig> rabbitMQConfig)
+        public Worker(ILogger<Worker> logger, IUnitOfWork unitOfWork, IOptions<RabbitMQConfig> rabbitMQConfig, IMessageBrokerPublish publish)
         {
             this._logger = logger;
             this._db = unitOfWork;
-            this.rabbitMQConfig = rabbitMQConfig;
+            this._rabbitMQConfig = rabbitMQConfig;
+            this._publish = publish;
             InitRabbitMQ();
         }
 
@@ -34,11 +35,11 @@ namespace DellTalkNET_UsandoRabbitMQ.Services.ProcessingOrder
         {
             ConnectionFactory _factory = new()
             {
-                HostName = rabbitMQConfig.Value.Host,
-                Port = (rabbitMQConfig.Value.Port ?? 5672),
-                UserName = rabbitMQConfig.Value.Username,
-                Password = rabbitMQConfig.Value.Password,
-                VirtualHost = rabbitMQConfig.Value.VirtualHost
+                HostName = _rabbitMQConfig.Value.Host,
+                Port = (_rabbitMQConfig.Value.Port ?? 5672),
+                UserName = _rabbitMQConfig.Value.Username,
+                Password = _rabbitMQConfig.Value.Password,
+                VirtualHost = _rabbitMQConfig.Value.VirtualHost
             };
 
             _connection = _factory.CreateConnection();
@@ -82,22 +83,62 @@ namespace DellTalkNET_UsandoRabbitMQ.Services.ProcessingOrder
             _db.BeginTransaction();
             try
             {
-                OrderCreateModel order = JsonSerializer.Deserialize<OrderCreateModel>(content);
+                OrderCreateModel orderToQueue = JsonSerializer.Deserialize<OrderCreateModel>(content);
 
-                Infrastructure.Domains.Customer? customer = _db.Customer.GetAll(x => x.Document == order.Customer.Document).FirstOrDefault();
+                Infrastructure.Domains.Customer? customer = _db.Customer.GetAll(x => x.Document == orderToQueue.Customer.Document).FirstOrDefault();
                 if (customer == null)
                 {
                     customer = new Infrastructure.Domains.Customer
                     {
-
+                        Birthday = orderToQueue.Customer.Birthday,
+                        Document = orderToQueue.Customer.Document,
+                        Email = orderToQueue.Customer.Email,
+                        Name = orderToQueue.Customer.Name
                     };
                 }
 
-                _db.CommitTransaction();
+                _db.Customer.SaveOrUpdate(customer);
+
+                Infrastructure.Domains.Order order = new()
+                {
+                    Customer = customer,
+                    AuthorizeDate = null,
+                    Date = orderToQueue.Date,
+                    Number = DateTime.Now.ToString("yyyyMMddhhmmss")
+                };
+
+                _db.Order.SaveOrUpdate(order);
+
+                for (int i = 0; i < orderToQueue.Items.Count; i++)
+                {
+                    Infrastructure.Domains.Product? product = _db.Product.Query().Where(x => x.Code == orderToQueue.Items[i].Product.Code).FirstOrDefault();
+
+                    if (product == null)
+                        throw new Exception($"Produto {orderToQueue.Items[i].Product.Code} não foi localizado.");
+
+                    Infrastructure.Domains.OrderItem item = new()
+                    {
+                        Order = order,
+                        Amount = orderToQueue.Items[i].Amount,
+                        Cost = orderToQueue.Items[i].Cost,
+                        Sequence = Convert.ToInt16(1 + i),
+                        Product = product
+                    };
+
+                    _db.OrderItem.SaveOrUpdate(item);
+                }
+
+                _db.Commit();
+
+                string payload = JsonSerializer.Serialize(new
+                {
+                    OrderId = order.Id.Value
+                });
+                _publish.ToQueue(QueueConst.QUEUE_BILLING_ORDER, payload);
             }
             catch (Exception ex)
             {
-                _db.RollbackTransaction();
+                _db.Rollback();
                 _logger.LogError(ex.Message);
             }
         }

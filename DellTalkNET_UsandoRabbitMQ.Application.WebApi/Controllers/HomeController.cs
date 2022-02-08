@@ -7,11 +7,8 @@ namespace DellTalkNET_UsandoRabbitMQ.Application.WebApi.Controllers
     [Route("/api")]
     public class HomeController : Controller
     {
-        private readonly IUnitOfWork db;
-
-        public HomeController(IUnitOfWork unitOfWork)
+        public HomeController()
         {
-            this.db = unitOfWork;
         }
 
         [HttpGet]

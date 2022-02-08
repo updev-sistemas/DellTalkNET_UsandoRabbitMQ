@@ -7,7 +7,7 @@ namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Domains
         public virtual Customer? Customer { get; set; }
         public virtual string? Number { get; set; }
         public virtual DateTime? Date { get; set; }
-        public virtual OrderStatusEnum Status { get; set; }
-        public virtual string? AuthorizeCode { get; set; }
+        public virtual string? Status { get; set; }
+        public virtual DateTime? AuthorizeDate { get; set; }
     }
 }

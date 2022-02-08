@@ -17,6 +17,9 @@ namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository
 
             _customerRepository = new CustomerRepository(_session);
             _productRepository = new ProductRepository(_session);
+            _skuRepository = new SkuRepository(_session);
+            _orderRepository = new OrderRepository(_session);
+            _orderItemRepository = new OrderItemRepository(_session);
         }
         #endregion
 
@@ -24,12 +27,18 @@ namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository
 
         private readonly ICustomerRepository _customerRepository;
         private readonly IProductRepository _productRepository;
+        private readonly ISkuRepository _skuRepository;
+        private readonly IOrderRepository _orderRepository;
+        private readonly IOrderItemRepository _orderItemRepository;
 
         #endregion
 
         #region Members
         public ICustomerRepository Customer => _customerRepository;
         public IProductRepository Product => _productRepository;
+        public ISkuRepository Sku => _skuRepository;
+        public IOrderRepository Order => _orderRepository;
+        public IOrderItemRepository OrderItem => _orderItemRepository;
 
         #endregion
 
@@ -41,40 +50,38 @@ namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository
 
         public void BeginTransaction()
         {
-            if (_transaction != null)
+            if (!_session.IsConnected)
             {
-                throw new Exception("Banco está com uma transação em andamento.");
+                _session.Reconnect();
             }
 
-            _transaction = _session.BeginTransaction();
+            if (_transaction != null)
+            {
+                throw new Exception("Transaction in progress.");
+            }
+
+            _session.Flush();
+            _transaction =  _session.BeginTransaction();
         }
 
-        public void CommitTransaction()
+        public void Commit()
         {
-            if (_transaction != null)
-            {
-                _transaction.Commit();
-                _transaction = null;
-            }
+            _transaction?.Commit();
+            _session.Flush();
+            _transaction = null;
         }
 
-        public void RollbackTransaction()
+        public void Rollback()
         {
-            if (_transaction != null)
-            {
-                _transaction.Rollback();
-                _transaction = null;
-            }
+            _transaction?.Rollback();
+            _session.Flush();
+            _transaction = null;
         }
-
 
         public void Dispose()
         {
-            if (_transaction != null)
-                _transaction.Rollback();
-
-            _session.Flush();
-            _session.Close();
+            _session?.Flush();
+            _session?.Close();
         }
         #endregion
     }

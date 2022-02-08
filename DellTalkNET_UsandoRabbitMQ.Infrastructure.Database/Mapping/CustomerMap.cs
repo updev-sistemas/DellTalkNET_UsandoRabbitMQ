@@ -9,7 +9,7 @@ namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Database.Mapping
         {
             Table("tb_customers");
 
-            Id(x => x.Id).Column("id").GeneratedBy.Increment();
+            Id(x => x.Id).Column("id").GeneratedBy.Identity();
 
             Map(x => x.Document).Column("document").Not.Nullable();
             Map(x => x.Name).Column("name").Not.Nullable();

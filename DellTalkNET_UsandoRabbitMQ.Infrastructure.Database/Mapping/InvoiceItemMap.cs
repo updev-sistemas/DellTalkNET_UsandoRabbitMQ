@@ -9,7 +9,7 @@ namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Database.Mapping
         {
             Table("tb_invoice_items");
 
-            Id(x => x.Id).Column("id").GeneratedBy.Increment();
+            Id(x => x.Id).Column("id").GeneratedBy.Identity();
 
             References(x => x.Product).Column("product_id").Not.Nullable();
             References(x => x.Invoice).Column("invoice_id").Not.Nullable();
