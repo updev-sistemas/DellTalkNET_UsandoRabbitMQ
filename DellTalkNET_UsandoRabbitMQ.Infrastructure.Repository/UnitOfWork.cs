@@ -20,6 +20,8 @@ namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository
             _skuRepository = new SkuRepository(_session);
             _orderRepository = new OrderRepository(_session);
             _orderItemRepository = new OrderItemRepository(_session);
+            _invoiceRepository = new InvoiceRepository(_session);
+            _invoiceItemRepository = new InvoiceItemRepository(_session);
         }
         #endregion
 
@@ -30,6 +32,8 @@ namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository
         private readonly ISkuRepository _skuRepository;
         private readonly IOrderRepository _orderRepository;
         private readonly IOrderItemRepository _orderItemRepository;
+        private readonly IInvoiceRepository _invoiceRepository;
+        private readonly IInvoiceItemRepository _invoiceItemRepository;
 
         #endregion
 
@@ -39,7 +43,8 @@ namespace DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository
         public ISkuRepository Sku => _skuRepository;
         public IOrderRepository Order => _orderRepository;
         public IOrderItemRepository OrderItem => _orderItemRepository;
-
+        public IInvoiceRepository Invoice => _invoiceRepository;
+        public IInvoiceItemRepository InvoiceItem => _invoiceItemRepository;
         #endregion
 
         #region Transaction Control

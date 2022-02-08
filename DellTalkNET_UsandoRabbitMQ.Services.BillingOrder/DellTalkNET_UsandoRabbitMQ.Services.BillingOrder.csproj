@@ -9,5 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DellTalkNET_UsandoRabbitMQ.Application.Common\DellTalkNET_UsandoRabbitMQ.Application.Common.csproj" />
+    <ProjectReference Include="..\DellTalkNET_UsandoRabbitMQ.Infrastructure.MessageBroker\DellTalkNET_UsandoRabbitMQ.Infrastructure.MessageBroker.csproj" />
+    <ProjectReference Include="..\DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository\DellTalkNET_UsandoRabbitMQ.Infrastructure.Repository.csproj" />
   </ItemGroup>
 </Project>
