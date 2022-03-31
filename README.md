@@ -34,3 +34,14 @@ Acesse esse link e proceda conforme instruções.
 ```url
 https://community.chocolatey.org/packages/rabbitmq
 ```
+
+## Acessando o Rabbit
+O RabbitMQ irá funcionar em Localhost na porta 15672 
+
+Acesse
+```URL
+http://localhost:15672
+```
+
+Usuário Padrão: guest
+Senha Padrão: guest
